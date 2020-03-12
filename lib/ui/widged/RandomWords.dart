@@ -35,7 +35,12 @@ class _RandomWordsState extends State<RandomWords> {
   Widget _buildWords(context, List<WordPair> words) {
     return Center(
       child: _words.isEmpty
-          ? Text("word is empry")
+          ? Text(
+              "word is empry",
+              style: TextStyle(
+                fontSize: 48,
+              ),
+            )
           : ListView.builder(
               padding: EdgeInsets.all(16.0),
               itemCount: words.length,
@@ -49,6 +54,7 @@ class _RandomWordsState extends State<RandomWords> {
   Widget _buildNewRow(context, WordPair pair) {
     return InkWell(
       onTap: () {
+        Scaffold.of(context).removeCurrentSnackBar();
         Scaffold.of(context).showSnackBar(new SnackBar(
           content: new Text(pair.asPascalCase),
         ));
