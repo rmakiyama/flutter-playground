@@ -9,6 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        snackBarTheme: SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+        ),
       ),
       title: 'Startup Name Generator',
       home: RandomWords(),
