@@ -46,18 +46,6 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
-  Widget _buildRow(WordPair pair) {
-    return ListTile(
-      onTap: () {
-        print(pair.asPascalCase);
-      },
-      title: Text(
-        pair.asPascalCase,
-        style: _biggerFont,
-      ),
-    );
-  }
-
   Widget _buildNewRow(context, WordPair pair) {
     return InkWell(
       onTap: () {
