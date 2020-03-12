@@ -25,16 +25,16 @@ class _RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: Text('Startup Name Generator'),
       ),
-      body: _buildWords(_words),
+      body: _buildWords(context, _words),
     );
   }
 
-  Widget _buildWords(List<WordPair> words) {
+  Widget _buildWords(context, List<WordPair> words) {
     return ListView.builder(
       padding: EdgeInsets.all(16.0),
       itemCount: words.length,
       itemBuilder: (context, index) {
-        return _buildRow(words[index]);
+        return _buildNewRow(context, words[index]);
       },
     );
   }
@@ -47,6 +47,36 @@ class _RandomWordsState extends State<RandomWords> {
       title: Text(
         pair.asPascalCase,
         style: _biggerFont,
+      ),
+    );
+  }
+
+  Widget _buildNewRow(context, WordPair pair) {
+    return InkWell(
+      onTap: () {
+        Scaffold.of(context).showSnackBar(new SnackBar(
+          content: new Text(pair.asPascalCase),
+        ));
+        print(pair.asPascalCase);
+      },
+      borderRadius: BorderRadius.all(Radius.circular(24)),
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Row(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              child: Icon(
+                Icons.note,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              pair.asPascalCase,
+              style: _biggerFont,
+            ),
+          ],
+        ),
       ),
     );
   }
