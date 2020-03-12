@@ -14,28 +14,35 @@ class _RandomWordsState extends State<RandomWords> {
   );
 
   @override
-  void initState() {
-    super.initState();
-    _words.addAll(generateWordPairs().take(25));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
       ),
       body: _buildWords(context, _words),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _addWord,
+        label: Text(
+          "ADD WORD",
+        ),
+        icon: Icon(
+          Icons.add,
+        ),
+      ),
     );
   }
 
   Widget _buildWords(context, List<WordPair> words) {
-    return ListView.builder(
-      padding: EdgeInsets.all(16.0),
-      itemCount: words.length,
-      itemBuilder: (context, index) {
-        return _buildNewRow(context, words[index]);
-      },
+    return Center(
+      child: _words.isEmpty
+          ? Text("word is empry")
+          : ListView.builder(
+              padding: EdgeInsets.all(16.0),
+              itemCount: words.length,
+              itemBuilder: (context, index) {
+                return _buildNewRow(context, words[index]);
+              },
+            ),
     );
   }
 
@@ -79,5 +86,11 @@ class _RandomWordsState extends State<RandomWords> {
         ),
       ),
     );
+  }
+
+  void _addWord() {
+    setState(() {
+      _words.add(WordPair.random());
+    });
   }
 }
