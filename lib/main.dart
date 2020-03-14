@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterplayground/ui/widged/RandomWords.dart';
+import 'package:flutterplayground/ui/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,13 +8,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
         snackBarTheme: SnackBarThemeData(
           behavior: SnackBarBehavior.floating,
         ),
       ),
-      title: 'Startup Name Generator',
-      home: RandomWords(),
+      darkTheme: ThemeData.dark(),
+      home: HomeScreen(),
     );
   }
 }
