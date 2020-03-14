@@ -8,7 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primaryColor: Colors.teal,
+        primaryColorDark: Colors.teal[700],
+        accentColor: Colors.teal,
         snackBarTheme: SnackBarThemeData(
           behavior: SnackBarBehavior.floating,
         ),
