@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterplayground/ui/screens/create_entry_screen.dart';
 
 class EntryListScreen extends StatelessWidget {
   @override
@@ -9,7 +10,12 @@ class EntryListScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          print("EntryListScreen");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CreateEntryScreen(),
+            ),
+          );
         },
         icon: Icon(Icons.add),
         label: Text("add diary"),
