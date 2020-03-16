@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutterplayground/ui/screens/create_entry_screen.dart';
 
 class EntryListScreen extends StatelessWidget {
@@ -21,7 +22,10 @@ class EntryListScreen extends StatelessWidget {
         label: Text("add diary"),
       ),
       body: Center(
-        child: Text("EntryListScreen"),
+        child: SvgPicture.asset(
+          'assets/graphics/image_empty.svg',
+          width: 240,
+        ),
       ),
     );
   }
