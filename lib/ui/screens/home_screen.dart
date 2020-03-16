@@ -16,7 +16,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
-        children: <Widget>[EntryListScreen(), DiscoveryScreen(), StatsScreen()],
+        children: <Widget>[
+          EntryListScreen(),
+          DiscoveryScreen(),
+          StatsScreen(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
