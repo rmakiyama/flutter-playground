@@ -22,9 +22,25 @@ class EntryListScreen extends StatelessWidget {
         label: Text("add diary"),
       ),
       body: Center(
-        child: SvgPicture.asset(
-          'assets/graphics/image_empty.svg',
-          width: 240,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SvgPicture.asset(
+              'assets/graphics/image_empty.svg',
+              width: 240,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                top: 16,
+              ),
+              child: Text(
+                "How was your day?",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
